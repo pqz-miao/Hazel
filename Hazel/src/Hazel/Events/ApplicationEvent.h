@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Hazel {
 
 	class HAZEL_API WindowResizeEvent : public Event
@@ -38,7 +36,7 @@ namespace Hazel {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class HAZEL_API AppTickEvent : Event
+	class HAZEL_API AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() {}
