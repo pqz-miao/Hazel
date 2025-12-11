@@ -22,7 +22,10 @@ namespace Hazel {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
-		inline Window& GetWindow() { return *m_Window; }
+		inline Window& GetWindow() {
+			HZ_CORE_ASSERT(m_Window, "Window is null!");
+			return *m_Window; 
+		}
 
 		inline static Application& Get() { return *s_Instance; }
 	private:
