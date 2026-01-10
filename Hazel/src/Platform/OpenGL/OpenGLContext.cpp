@@ -20,9 +20,12 @@ namespace Hazel {
 		HZ_CORE_ASSERT(status, "Failed to initialize Glad!");
 
 		HZ_CORE_INFO("OpenGL Info:");
-		HZ_CORE_INFO("  Vendor: {0}", (void*)glGetString(GL_VENDOR));
-		HZ_CORE_INFO("  Renderer: {0}", (void*)glGetString(GL_RENDERER));
-		HZ_CORE_INFO("  Version: {0}", (void*)glGetString(GL_VERSION));
+		const auto vendor = glGetString(GL_VENDOR);
+		const auto renderer = glGetString(GL_RENDERER);
+		const auto version = glGetString(GL_VERSION);
+		HZ_CORE_INFO("Vendor: {0}", vendor ? reinterpret_cast<const char*>(vendor) : "Unknown");
+		HZ_CORE_INFO("Renderer: {0}", renderer ? reinterpret_cast<const char*>(renderer) : "Unknown");
+		HZ_CORE_INFO("Version: {0}", version ? reinterpret_cast<const char*>(version) : "Unknown");
 	}
 
 	void OpenGLContext::SwapBuffers()
